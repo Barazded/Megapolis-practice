@@ -2,8 +2,11 @@ import csv
 import string
 file = open("space.txt", "r")
 ships = list(csv.DictReader(file, delimiter="*", quotechar='"'))
-#LOСА-302
 def gen_hash(name: str):
+    '''
+    алгоритм генерации хэш кода
+    name -  имя
+    '''
     alph = "ЯЧСМИТЬБЮЁЭЖДЛОРПАВЫФЙЦУКЕНГШЩЗХЪ" + string.ascii_uppercase + string.digits
     d = dict()
     for i in range(len(alph)):
@@ -17,6 +20,7 @@ def gen_hash(name: str):
         step = step*p
     return int(hash)
 def getShips(planet: str):
+    # поиск кораблей по родной планете
     mas = []
     for ship in ships:
         if ship["planet"] == planet:

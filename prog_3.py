@@ -2,6 +2,10 @@ import csv
 file = open("space.txt", "r")
 ships = list(csv.DictReader(file, delimiter="*", quotechar='"'))
 def findShipByName(name: str):
+    '''
+    метод линейного поиска кораблей по названию
+    name - имя корабля
+    '''
     for ship in ships:
         nameCurrShip = ship["ShipName"]
         if name == nameCurrShip:

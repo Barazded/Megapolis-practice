@@ -2,6 +2,13 @@ import csv
 file = open("space.txt", "r")
 ships = list(csv.DictReader(file, delimiter="*", quotechar='"'))
 def algo(n,m,xd,yd,t):
+    '''
+    алгоритм поиска координат
+    n – первая цифра в номере корабля, 
+    m – вторая цифра в номере корабля, 
+    t - кол-во букв в родной  планете корабля. 
+    xd, yd - координаты вектора направления
+    '''
     x,y = 0,0
     if n > 5:
         x = n + xd
@@ -22,6 +29,7 @@ for ship in ships:
     planet = ship["planet"]
     fullvec = ship["direction"]
     fullname = ship["ShipName"]
+    #если координаты неопределены
     if x == 0 and y == 0:
         x,y = algo(int(name[1][0]), int(name[1][1]), int(vec[0]), int(vec[1]), len(planet))
     if name[0][-1] == "V":

@@ -2,6 +2,10 @@ import csv
 file = open("space.txt", "r")
 ships = list(csv.DictReader(file, delimiter="*", quotechar='"'))
 def my_sort(mas):
+    '''
+    алгоритм сортировки пузырьком 
+    mas - массив данных передаваемый на вход
+    '''
     for i in range(len(mas)):
         for j in range(len(mas)-i-1):
             val1 = int(mas[i]["ShipName"].split("-")[1])
@@ -12,6 +16,7 @@ def my_sort(mas):
 sortships = my_sort(ships)
 count = 1
 for element in sortships:
+    #перебор всех кораблей
     if count > 10: exit()
     print(element["ShipName"])
     count += 1

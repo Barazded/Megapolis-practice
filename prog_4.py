@@ -3,6 +3,11 @@ import random
 file = open("space.txt", "r")
 ships = list(csv.DictReader(file, delimiter="*", quotechar='"'))
 def gen_password(nameShip: str ,planet: str):
+    '''
+    алгоритм генерации пароля 
+    nameShip - имя корабля 
+    planet -  родная планета
+    '''
     password = ""
     codeShip = nameShip.split("-")[0]
     mid = len(codeShip)//2
